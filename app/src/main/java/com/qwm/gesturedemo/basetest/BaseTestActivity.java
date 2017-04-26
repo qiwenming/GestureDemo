@@ -115,6 +115,5 @@ public class BaseTestActivity extends BaseActivity {
             log = msg;
         }
         mBaseTv.setText(log);
-        Log.i(TAG, "logger: ---"+mBaseTv.getMeasuredHeight());
     }
 }

@@ -10,7 +10,13 @@ import android.view.View;
 
 import com.qwm.gesturedemo.BaseActivity;
 import com.qwm.gesturedemo.R;
-
+/**
+ * <b>Project:</b> YuantaiApplication<br>
+ * <b>Create Date:</b> 2017/4/26<br>
+ * <b>Author:</b> qiwenming<br>
+ * <b>Description:</b> <br>
+ *     缩放手势
+ */
 public class ScaleGestureActivity extends BaseActivity {
 
     private View mView;

@@ -8,6 +8,7 @@ import android.widget.GridView;
 
 
 import com.qwm.gesturedemo.basetest.BaseTestActivity;
+import com.qwm.gesturedemo.basetest.DoubleTapActivity;
 import com.qwm.gesturedemo.basetest.DragTestActivity;
 import com.qwm.gesturedemo.basetest.RotateGestureActivity;
 import com.qwm.gesturedemo.basetest.ScaleGestureActivity;
@@ -30,6 +31,7 @@ public class MainActivity extends BaseActivity {
         contentGv = (GridView) findViewById(R.id.content_gv);
         itemList = new ArrayList<>();
         itemList.add("手势基本测试");
+        itemList.add("双击测试");
         itemList.add("拖拽测试");
         itemList.add("缩放测试");
         itemList.add("旋转测试");
@@ -40,6 +42,8 @@ public class MainActivity extends BaseActivity {
                 String itemStr = itemList.get(position);
                 if ("手势基本测试".equals(itemStr)) {
                     startActivity(itemStr, BaseTestActivity.class);
+                }else if ("双击测试".equals(itemStr)) {
+                    startActivity(itemStr, DoubleTapActivity.class);
                 }else if ("拖拽测试".equals(itemStr)) {
                     startActivity(itemStr, DragTestActivity.class);
                 }else if ("缩放测试".equals(itemStr)) {
