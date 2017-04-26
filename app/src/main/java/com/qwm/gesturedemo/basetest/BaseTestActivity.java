@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.widget.TextView;
 
 import com.qwm.gesturedemo.BaseActivity;
 import com.qwm.gesturedemo.R;
@@ -21,13 +22,15 @@ public class BaseTestActivity extends BaseActivity {
 
     private static final String TAG = "BaseTestActivity";
     private GestureDetectorCompat mGestureDetector;
+    private TextView mBaseTv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_test);
-//        mGestureDetector = new GestureDetectorCompat(this,mOnGestureListener);
-        mGestureDetector = new GestureDetectorCompat(this,mSimpleOnGestureListener);
+        mBaseTv = (TextView)findViewById(R.id.base_tv);
+        mGestureDetector = new GestureDetectorCompat(this,mOnGestureListener);
+//        mGestureDetector = new GestureDetectorCompat(this,mSimpleOnGestureListener);
     }
 
     @Override
@@ -39,36 +42,42 @@ public class BaseTestActivity extends BaseActivity {
    private GestureDetector.OnGestureListener mOnGestureListener = new GestureDetector.OnGestureListener() {
        @Override
        public boolean onDown(MotionEvent mCurrentDownEvent) {
+           logger("onDown: ");
            Log.i(TAG, "onDown: ");
            return true;
        }
 
        @Override
        public void onShowPress(MotionEvent mCurrentDownEvent) {
+           logger("onShowPress: ");
            Log.i(TAG, "onShowPress: ");
        }
 
        @Override
        public boolean onSingleTapUp(MotionEvent mCurrentDownEvent) {
+           logger("onSingleTapUp: ");
            Log.i(TAG, "onSingleTapUp: ");
            return false;
        }
 
        @Override
        public boolean onScroll(MotionEvent mCurrentDownEvent, MotionEvent motionEvent1, float velocityX, float velocityY) {
+           logger("onScroll: "+velocityX+"----"+velocityY);
            Log.i(TAG, "onScroll: "+velocityX+"----"+velocityY);
            return false;
        }
 
        @Override
        public void onLongPress(MotionEvent mCurrentDownEvent) {
+           logger("onLongPress: ");
            Log.i(TAG, "onLongPress: ");
        }
 
        @Override
        public boolean onFling(MotionEvent mCurrentDownEvent, MotionEvent motionEvent1, float velocityX, float velocityY) {
            Log.i(TAG, "onFling: "+velocityX+"----"+velocityY);
-           if(velocityX > 10) {
+           logger("onShowPress: ");
+           if(velocityX > 10 && velocityX > Math.abs(velocityY)) {
                finish();
            }
            return true;
@@ -78,14 +87,15 @@ public class BaseTestActivity extends BaseActivity {
     private GestureDetector.SimpleOnGestureListener mSimpleOnGestureListener = new GestureDetector.SimpleOnGestureListener(){
         @Override
         public boolean onDown(MotionEvent e) {
+            logger("onDown: ");
             Log.i(TAG, "onDown: ----");
-//            return super.onDown(e);
             return false;
         }
         @Override
         public boolean onFling(MotionEvent mCurrentDownEvent, MotionEvent motionEvent1, float velocityX, float velocityY) {
+            logger("onFling: "+velocityX+"----"+velocityY);
             Log.i(TAG, "onFling: "+velocityX+"----"+velocityY);
-            if(velocityX > 10) {
+            if(velocityX > 10 && velocityX > Math.abs(velocityY)) {
                 finish();
             }
             return true;
@@ -93,8 +103,18 @@ public class BaseTestActivity extends BaseActivity {
 
         @Override
         public boolean onDoubleTap(MotionEvent e) {
+            logger("onDoubleTap: ");
             Log.i(TAG, "onDoubleTap: ---");
             return super.onDoubleTap(e);
         }
     };
+
+    private void logger(String msg){
+        String log = mBaseTv.getText()+"\n"+msg;
+        if(log.split(":").length>30){
+            log = msg;
+        }
+        mBaseTv.setText(log);
+        Log.i(TAG, "logger: ---"+mBaseTv.getMeasuredHeight());
+    }
 }
