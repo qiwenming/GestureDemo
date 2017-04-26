@@ -44,7 +44,7 @@ public class BaseTestActivity extends BaseActivity {
        public boolean onDown(MotionEvent mCurrentDownEvent) {
            logger("onDown: ");
            Log.i(TAG, "onDown: ");
-           return true;
+           return false;
        }
 
        @Override
@@ -62,8 +62,8 @@ public class BaseTestActivity extends BaseActivity {
 
        @Override
        public boolean onScroll(MotionEvent mCurrentDownEvent, MotionEvent motionEvent1, float velocityX, float velocityY) {
-           logger("onScroll: "+velocityX+"----"+velocityY);
-           Log.i(TAG, "onScroll: "+velocityX+"----"+velocityY);
+           logger("onScroll: "+velocityX+"     ,     "+velocityY);
+           Log.i(TAG, "onScroll: "+velocityX+"     ,     "+velocityY);
            return false;
        }
 
@@ -75,8 +75,8 @@ public class BaseTestActivity extends BaseActivity {
 
        @Override
        public boolean onFling(MotionEvent mCurrentDownEvent, MotionEvent motionEvent1, float velocityX, float velocityY) {
-           Log.i(TAG, "onFling: "+velocityX+"----"+velocityY);
-           logger("onShowPress: ");
+           Log.i(TAG, "onFling: "+velocityX+"     ,     "+velocityY);
+           logger("onFling: "+velocityX+"     ,     "+velocityY);
            if(velocityX > 10 && velocityX > Math.abs(velocityY)) {
                finish();
            }
@@ -88,13 +88,13 @@ public class BaseTestActivity extends BaseActivity {
         @Override
         public boolean onDown(MotionEvent e) {
             logger("onDown: ");
-            Log.i(TAG, "onDown: ----");
+            Log.i(TAG, "onDown: ");
             return false;
         }
         @Override
         public boolean onFling(MotionEvent mCurrentDownEvent, MotionEvent motionEvent1, float velocityX, float velocityY) {
-            logger("onFling: "+velocityX+"----"+velocityY);
-            Log.i(TAG, "onFling: "+velocityX+"----"+velocityY);
+            logger("onFling: "+velocityX+"     ,     "+velocityY);
+            Log.i(TAG, "onFling: "+velocityX+","+velocityY);
             if(velocityX > 10 && velocityX > Math.abs(velocityY)) {
                 finish();
             }
