@@ -10,8 +10,10 @@ import android.widget.GridView;
 import com.qwm.gesturedemo.basetest.BaseTestActivity;
 import com.qwm.gesturedemo.basetest.DoubleTapActivity;
 import com.qwm.gesturedemo.basetest.DragTestActivity;
-import com.qwm.gesturedemo.basetest.RotateGestureActivity;
+import com.qwm.gesturedemo.thridlib.MoveGestureActivity;
+import com.qwm.gesturedemo.thridlib.RotateGestureActivity;
 import com.qwm.gesturedemo.basetest.ScaleGestureActivity;
+import com.qwm.gesturedemo.thridlib.ShoveGestureActivity;
 
 import java.util.ArrayList;
 
@@ -34,7 +36,9 @@ public class MainActivity extends BaseActivity {
         itemList.add("双击测试");
         itemList.add("拖拽测试");
         itemList.add("缩放测试");
-        itemList.add("旋转测试");
+        itemList.add("旋转测试(第三方库)");
+        itemList.add("拖拽测试(第三方库)");
+        itemList.add("shove(第三方库)");
         contentGv.setAdapter(new MyGridAdapter(this, itemList));
         contentGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -48,8 +52,12 @@ public class MainActivity extends BaseActivity {
                     startActivity(itemStr, DragTestActivity.class);
                 }else if ("缩放测试".equals(itemStr)) {
                     startActivity(itemStr, ScaleGestureActivity.class);
-                }else if ("旋转测试".equals(itemStr)) {
+                }else if ("旋转测试(第三方库)".equals(itemStr)) {
                     startActivity(itemStr, RotateGestureActivity.class);
+                }else if ("拖拽测试(第三方库)".equals(itemStr)) {
+                    startActivity(itemStr, MoveGestureActivity.class);
+                }else if ("shove(第三方库)".equals(itemStr)) {
+                    startActivity(itemStr, ShoveGestureActivity.class);
                 }
             }
         });

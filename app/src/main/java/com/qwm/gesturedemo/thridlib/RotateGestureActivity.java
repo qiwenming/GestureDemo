@@ -1,4 +1,4 @@
-package com.qwm.gesturedemo.basetest;
+package com.qwm.gesturedemo.thridlib;
 
 import android.graphics.Matrix;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.qwm.gesturedemo.BaseActivity;
 import com.qwm.gesturedemo.R;
 
 import multitouch.RotateGestureDetector;
@@ -17,7 +18,7 @@ import multitouch.RotateGestureDetector;
  * <b>Author:</b> qiwenming<br>
  * <b>Description:</b> <br>
  */
-public class RotateGestureActivity extends AppCompatActivity {
+public class RotateGestureActivity extends BaseActivity {
 
     private View mView;
     private RotateGestureDetector mRotateGestureDetector;

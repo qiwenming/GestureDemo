@@ -18,8 +18,11 @@
         <activity android:name=".basetest.BaseTestActivity" />
         <activity android:name=".basetest.DragTestActivity" />
         <activity android:name=".basetest.ScaleGestureActivity" />
-        <activity android:name=".basetest.RotateGestureActivity" />
-        <activity android:name=".basetest.DoubleTapActivity"></activity>
+        <activity android:name=".thridlib.RotateGestureActivity" />
+        <activity android:name=".basetest.DoubleTapActivity" />
+        <activity android:name=".thridlib.RotateGestureActivity" />
+        <activity android:name=".thridlib.MoveGestureActivity" />
+        <activity android:name=".thridlib.ShoveGestureActivity"></activity>
     </application>
 
 </manifest>
