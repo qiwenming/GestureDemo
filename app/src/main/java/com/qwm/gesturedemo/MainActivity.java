@@ -21,6 +21,8 @@ public class MainActivity extends BaseActivity {
     private GridView contentGv;
     private ArrayList<String> itemList;
     private static final String TAG = "MainActivity";
+    public static String NOTAG = "____QWM_____";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,9 +38,16 @@ public class MainActivity extends BaseActivity {
         itemList.add("双击测试");
         itemList.add("拖拽测试");
         itemList.add("缩放测试");
+        //添加换行
+        listAddNullTag();
+
         itemList.add("旋转测试(第三方库)");
         itemList.add("拖拽测试(第三方库)");
         itemList.add("shove(第三方库)");
+
+        //添加换行
+        listAddNullTag();
+
         contentGv.setAdapter(new MyGridAdapter(this, itemList));
         contentGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -62,5 +71,15 @@ public class MainActivity extends BaseActivity {
             }
         });
 
+    }
+
+    public void listAddNullTag(){
+        int numColumns = contentGv.getNumColumns();
+        if(itemList.size()%numColumns!=0){//没有填充满的时候，添加空的标记
+            int count = ( (itemList.size()/numColumns +1) * numColumns ) - itemList.size();
+            for (int i = 0; i < count; i++) {
+                itemList.add(NOTAG);
+            }
+        }
     }
 }

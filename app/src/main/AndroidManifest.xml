@@ -20,9 +20,11 @@
         <activity android:name=".basetest.ScaleGestureActivity" />
         <activity android:name=".thridlib.RotateGestureActivity" />
         <activity android:name=".basetest.DoubleTapActivity" />
-        <activity android:name=".thridlib.RotateGestureActivity" />
+        <!--<activity android:name=".thridlib.RotateGestureActivity" />-->
         <activity android:name=".thridlib.MoveGestureActivity" />
-        <activity android:name=".thridlib.ShoveGestureActivity"></activity>
+        <activity android:name=".thridlib.ShoveGestureActivity" />
+        <activity android:name=".mymutitouch.MyMutilActivity" />
+        <activity android:name=".mymutitouch.MyMutilBaseTestActivity"></activity>
     </application>
 
 </manifest>
